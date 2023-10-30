@@ -1,0 +1,26 @@
+import 'package:flutter/material.dart';
+
+
+class LayoutManager extends StatelessWidget {
+  const LayoutManager({
+    super.key,
+    required this.mobileLayout,
+    required this.desktopLayout,
+  });
+
+  final Widget mobileLayout;
+  final Widget desktopLayout;
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        if (constraints.maxWidth < 768) {
+          return mobileLayout;
+        } else {
+          return desktopLayout;
+        }
+      },
+    );
+  }
+}
