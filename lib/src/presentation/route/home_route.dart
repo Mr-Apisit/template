@@ -5,6 +5,6 @@ import '../page/home_page.dart';
 final List<RouteBase> home = [
   GoRoute(
     path: '/home',
-    builder: (context, _) => const HomePage(),
+    builder: (_, __) => const HomePage(),
   ),
 ];
