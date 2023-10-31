@@ -8,7 +8,6 @@ class SignInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    LoginInfo loginInfo = LoginInfo();
     return Scaffold(
       body: Center(
         child: TextButton(
