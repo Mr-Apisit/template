@@ -1,6 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:templates/src/presentation/utils/layout_manager.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../utils/layout_manager.dart';
 
 class BodyWidget extends StatelessWidget {
   const BodyWidget({Key? key}) : super(key: key);
@@ -27,9 +29,12 @@ class _Mobile extends StatelessWidget {
           children: [
             ...List.generate(
               10,
-              (index) => const Padding(
-                padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                child: BodyTile(),
+              (index) => const Hero(
+                tag: 'event',
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                  child: BodyTile(),
+                ),
               ),
             ),
           ],
@@ -52,9 +57,14 @@ class _Desktop extends StatelessWidget {
           children: [
             ...List.generate(
               10,
-              (index) => const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 25.0),
-                child: BodyTile(),
+              (index) => InkWell(
+                onTap: () {
+                  context.go('/event');
+                },
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 25.0),
+                  child: BodyTile(),
+                ),
               ),
             ),
           ],

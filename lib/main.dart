@@ -8,6 +8,7 @@ import 'package:templates/src/presentation/provider/login_info_provider.dart';
 
 import 'src/presentation/page/error_page.dart';
 import 'src/presentation/page/landing_page.dart';
+import 'src/presentation/route/event_route.dart';
 import 'src/presentation/route/home_route.dart';
 
 void main() {
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    final loginInfo = context.watch<LoginInfo>();
+
     return MaterialApp.router(
       routerConfig: GoRouter(
         initialLocation: '/',
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
           GoRoute(path: '/', builder: (_, __) => const LandingPage()),
           GoRoute(path: '/signin', builder: (_, __) => const SignInPage()),
           ...home,
+          ...event,
         ],
         errorBuilder: (context, state) => ErrorPage(error: state.error?.message ?? state.error.hashCode.toString()),
       ),
